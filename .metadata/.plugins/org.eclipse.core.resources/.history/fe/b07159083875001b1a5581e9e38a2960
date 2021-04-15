@@ -1,0 +1,33 @@
+package functionality;
+
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+public class Main {
+	private static void initUI(int height, int width) {
+
+		JFrame f = new JFrame("Algoritmica Grafurilor");
+
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Panel p = new Panel(height, width);
+		f.add(p);
+		//f.addKeyListener(p);
+		f.setSize(37 * width, 37 * height);
+
+		f.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+//		System.out.print("Introduceti inaltimea:");
+//		Scanner sc=new Scanner(System.in);
+//		int height=sc.nextInt();
+//		System.out.print("Introduceti latimea:");
+//		int width=sc.nextInt();
+		initUI(18, 20);
+
+		// sc.close();
+
+	}
+}

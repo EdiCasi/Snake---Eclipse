@@ -1,0 +1,15 @@
+package functionality;
+import javafx.util.Pair;
+public class Game {
+	Pair x;
+	private Board board;
+	public Game(int height, int width) {
+		board = new Board(height, width);
+		board.getMatrix()[height / 2][2].setBlocType(Bloc.type.SNAKE);
+		board.getMatrix()[height / 2][2 - 1].setBlocType(Bloc.type.SNAKE);
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+}

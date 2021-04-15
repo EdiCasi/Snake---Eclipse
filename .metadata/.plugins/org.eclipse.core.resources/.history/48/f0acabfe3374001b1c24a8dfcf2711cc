@@ -1,0 +1,20 @@
+package functionality;
+
+import java.util.Scanner;
+
+
+public class Main {
+	
+
+	public static void main(String[] args) {
+//		System.out.print("Introduceti inaltimea:");
+//		Scanner sc=new Scanner(System.in);
+//		int height=sc.nextInt();
+//		System.out.print("Introduceti latimea:");
+//		int width=sc.nextInt();
+		
+Panel p=new Panel(12,8);
+	
+
+	}
+}

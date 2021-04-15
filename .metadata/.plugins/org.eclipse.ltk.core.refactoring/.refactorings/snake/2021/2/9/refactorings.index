@@ -1,0 +1,9 @@
+1613905612632	Delete element
+1613909892945	Encapsulate field 'board'
+1613917834181	Rename type 'snakeHead'
+1613918058616	Encapsulate field 'line'
+1613918061928	Encapsulate field 'column'
+1613922547269	Delete element
+1614016595725	Encapsulate field 'curentDirection'
+1614098326789	Encapsulate field 'panelWidth'
+1614098331908	Encapsulate field 'panelHeight'

@@ -1,0 +1,62 @@
+package functionality;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Random;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.Timer;
+
+public class Panel extends JPanel implements ActionListener {
+
+	Game game;
+	static final int DELAY = 175; // 175
+	private Timer timer;
+
+	public static final int blocSize = 35;
+
+	private int panelWidth;
+	
+	public Panel(int height, int width) {
+
+		game = new Game(height, width, blocSize);
+
+		timer = new Timer(DELAY, this);
+		timer.start();
+
+		game.generateApple();
+		
+		panelWidth=blocSize*width;
+	}
+
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		for (int i = 0; i < game.getBoard().getHeight(); i++)
+			for (int j = 0; j < game.getBoard().getWidth(); j++)
+				game.getBoard().getMatrix()[i][j].drawBloc(g);
+
+		g.setColor(Color.red);
+		g.setFont(new Font("Ink Free", Font.BOLD, 40));
+		FontMetrics metrics = getFontMetrics(g.getFont());
+		g.drawString("Score: " + game.getAppleEaten(),
+				((35 + 2) * game.getBoard().getWidth() - metrics.stringWidth("Score: " + game.getAppleEaten())) / 2,
+				g.getFont().getSize());
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (game.isGameOver()) {
+			System.out.println("GAME OVER!");
+			System.exit(0);
+		}
+		game.moveSnake(KeyDemo.currentDirection);
+		repaint();
+	}
+}

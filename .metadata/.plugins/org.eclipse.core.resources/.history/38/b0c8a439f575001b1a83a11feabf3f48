@@ -1,0 +1,27 @@
+package functionality;
+
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+public class Main {
+	private static void initUI(int height, int width) {
+
+		JFrame f = new JFrame("Algoritmica Grafurilor");
+
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Panel panel = new Panel(height, width);
+		f.add(panel);
+		f.addKeyListener(new KeyDemo());
+		f.setSize((35 + 2) * width, 35 * (height + 1));
+
+		f.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+
+		initUI(9, 18);
+
+	}
+}

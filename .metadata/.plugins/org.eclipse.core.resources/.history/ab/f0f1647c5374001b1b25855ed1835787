@@ -1,0 +1,22 @@
+package functionality;
+
+public class SnakeHead {
+	private int line;
+	private int column;
+
+	public SnakeHead(int line, int column) {
+		super();
+		this.line = line;
+		this.column = column;
+
+	}
+
+	public Bloc returnUpperBloc(Board board) {
+		if (line - 1 < 0)
+			line = board.getHeight() - 1;
+		else
+			line--;
+		return board.getMatrix()[line][column];
+	}
+
+}

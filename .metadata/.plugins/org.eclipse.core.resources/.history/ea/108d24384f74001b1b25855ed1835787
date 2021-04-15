@@ -1,0 +1,21 @@
+package functionality;
+
+public class Game {
+	private Bloc snakeHeadPosition;
+	private Board board;
+
+	public Game(int height, int width) {
+
+		board = new Board(height, width);
+
+		snakeHeadPosition = board.getMatrix()[height / 2][2];
+		
+		snakeHeadPosition.setBlocType(Bloc.type.SNAKE);
+		
+		board.getMatrix()[height / 2][2 - 1].setBlocType(Bloc.type.SNAKE);
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+}

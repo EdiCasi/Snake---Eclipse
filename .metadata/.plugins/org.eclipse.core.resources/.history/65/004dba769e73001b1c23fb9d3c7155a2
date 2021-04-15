@@ -1,0 +1,17 @@
+package functionality;
+
+import java.awt.Rectangle;
+
+public class Bloc {
+// TO DO:: sa declar un rectangle
+	private Rectangle rect;
+
+	public Bloc(int X, int Y, int dimmension) {
+		rect = new Rectangle(X, Y, dimmension, dimmension);
+	}
+
+	public Rectangle getRect() {
+		return rect;
+	}
+
+}

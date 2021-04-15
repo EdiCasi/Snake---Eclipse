@@ -1,0 +1,30 @@
+package functionality;
+
+import java.util.ArrayList;
+
+import functionality.Bloc.type;
+
+public class Game {
+	private Bloc snakeHeadPosition;
+	private Board board;
+	private ArrayList<Bloc> snake;
+
+	public Game(int height, int width) {
+
+		board = new Board(height, width);
+
+		snake = new ArrayList<Bloc>();
+
+		snake.add(board.getMatrix()[height / 2][2]);
+		snake.add(board.getMatrix()[height / 2][1]);
+		
+		snake.get(0).setBlocType(type.SNAKE);
+		snake.get(1).setBlocType(type.SNAKE);
+		
+		snakeHeadPosition = snake.get(0);
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+}

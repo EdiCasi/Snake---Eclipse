@@ -1,0 +1,34 @@
+package functionality;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+public class Bloc {
+
+	enum type {
+		SNAKE, APPLE, NONE
+	};
+
+	private Rectangle rect;
+	private type blocType;
+
+	public Bloc(int X, int Y, int dimmension) {
+		rect = new Rectangle(X, Y, dimmension, dimmension);
+		blocType = type.NONE;
+	}
+
+	public Rectangle getRect() {
+		return rect;
+	}
+
+	public void setBlocType(type blocType) {
+		this.blocType = blocType;
+	}
+
+	public void drawBloc(Graphics g) {
+		g.setColor(Color.BLACK);
+		g.fillRect((int)rect.getX(), (int)rect.getY(), rect.getSize().height, rect.getSize().width);
+		g.drawRect((int)rect.getX(), (int)rect.getY(), rect.getSize().height, rect.getSize().width);
+	}
+}

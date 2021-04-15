@@ -1,0 +1,58 @@
+package functionality;
+
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+
+import functionality.Bloc.type;
+
+public class Game {
+	private SnakeHead snakeHead;
+	private Board board;
+	private ArrayList<Bloc> snake;
+
+	public Game(int height, int width) {
+
+		board = new Board(height, width);
+
+		snake = new ArrayList<Bloc>();
+
+		snake.add(board.getMatrix()[height / 2][2]);
+		snake.add(board.getMatrix()[height / 2][1]);
+
+		snake.get(0).setBlocType(type.SNAKE);
+		snake.get(1).setBlocType(type.SNAKE);
+
+		snakeHead = new SnakeHead(height / 2, 2);
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public void moveSnake(int key) {
+		snake.get(snake.size() - 1).setBlocType(type.NONE);
+
+		for (int i = snake.size() - 1; i >= 1; i--)
+			snake.set(i, snake.get(i - 1));
+
+		moveSnakeHead(key);
+
+		snake.get(0).setBlocType(type.SNAKE);
+	}
+
+	public void moveSnakeHead(int key) {
+		switch (key) {
+		case KeyEvent.VK_UP:
+			snake.set(0, snakeHead.returnUpBloc(board));
+			break;
+		case KeyEvent.VK_DOWN:
+			snake.set(0, snakeHead.returnDownBloc(board));
+			break;
+		case KeyEvent.VK_LEFT:
+			break;
+		case KeyEvent.VK_RIGHT:
+			break;
+		}
+	}
+
+}
